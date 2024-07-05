@@ -48,7 +48,7 @@
 #reset-btn:hover, .press:hover, .how:hover,  .x:hover,#new-btn:hover {
   background-image:linear-gradient(rgb(154, 54, 230),rgb(202, 157, 239))
 }
-.left:hover, .right:hover, b1:hover, .b2:hover, .b3:hover{
+.left:hover, .right:hover, .b1:hover, .b2:hover, .b3:hover{
   background-image:linear-gradient(rgb(140, 39, 218),rgb(233, 227, 238));
 }
 #msg {
