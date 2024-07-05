@@ -26,6 +26,6 @@ Trinity Tic-Tac-Toe represents a captivating multiplayer game that transforms th
 
         
 
-        
-![gameplay](https://github.com/Rezul04/TRINITY-TIC-TAC-TOE-Js/assets/117396265/811629a5-b82a-4ded-929c-e8a7f90f8dbe)
+![image](https://github.com/Rezul04/trinity_tic_tac_toe_js/assets/117396265/17f9a082-bd5f-4601-9f5a-42eccc9a95b5)
+
 
