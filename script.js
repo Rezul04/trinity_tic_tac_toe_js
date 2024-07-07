@@ -65,7 +65,7 @@ function checkboxHandler(box) {
     box.disabled=true;
 
     player1 = !player1;
-
+    box.classList.add('cursor-notAllowed');
     box.style.backgroundColor = "rgb(134, 88, 200)";
 
     if(player1){
@@ -207,12 +207,17 @@ function checkbox1() {
 
                 boxes1.forEach(box => box.removeEventListener('click', box.handler1));
 
+                boxes1.forEach(box => box.classList.add('cursor-notAllowed'));
+                
+
             } else {
 
                 winnerName();
 
                 newGame.classList.remove("hide");
-
+                boxes1.forEach(box => box.classList.remove('cursor-notAllowed'));
+                boxes2.forEach(box => box.classList.add('cursor-notAllowed'));
+                boxes3.forEach(box => box.classList.add('cursor-notAllowed'));
 
 
 
@@ -252,12 +257,16 @@ function checkbox2() {
 
                 boxes2.forEach(box => box.removeEventListener('click', box.handler2));
 
+                boxes2.forEach(box => box.classList.add('cursor-notAllowed'));
+
             } else {
 
                 winnerName();
 
                 newGame.classList.remove("hide");
-
+                boxes1.forEach(box => box.classList.remove('cursor-notAllowed'));
+                boxes2.forEach(box => box.classList.add('cursor-notAllowed'));
+                boxes3.forEach(box => box.classList.add('cursor-notAllowed'));
             }
 
             break;
@@ -294,12 +303,16 @@ function checkbox3() {
 
                 boxes3.forEach(box => box.removeEventListener('click', box.handler3));
 
+                boxes3.forEach(box => box.classList.add('cursor-notAllowed'));
+ 
             } else {
 
                 winnerName();
 
                 newGame.classList.remove("hide");
-
+                boxes1.forEach(box => box.classList.remove('cursor-notAllowed'));
+                boxes2.forEach(box => box.classList.add('cursor-notAllowed'));
+                boxes3.forEach(box => box.classList.add('cursor-notAllowed'));
             }
 
             break;
@@ -325,6 +338,9 @@ box.style.backgroundColor = "white";
 
 box.addEventListener('click', box.handler1);
 
+box.classList.remove('cursor-notAllowed');
+                
+
 })
 
 boxes2.forEach((box)=>{
@@ -339,6 +355,8 @@ boxes2.forEach((box)=>{
 
     box.addEventListener('click', box.handler2);
 
+    box.classList.remove('cursor-notAllowed');
+
     })
 
     boxes3.forEach((box)=>{
@@ -352,6 +370,8 @@ boxes2.forEach((box)=>{
         box.style.backgroundColor = "white";
 
         box.addEventListener('click', box.handler3);
+
+        box.classList.remove('cursor-notAllowed');
 
         })
 
