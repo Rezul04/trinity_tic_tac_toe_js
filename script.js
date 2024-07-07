@@ -31,6 +31,11 @@ let player1 = true;
 
 let iconCross=document.querySelectorAll('.icons');
 
+let imgLogo=document.querySelector('.logo');
+
+imgLogo.addEventListener('click',()=>{
+    window.location.reload();
+})
 const winPatterns = [
 
     [0, 1, 2],
