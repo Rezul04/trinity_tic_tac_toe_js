@@ -1,164 +1,144 @@
-
-
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trinity Tic-Tac-Toe Game</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   
-  </head>
-  
-
-  <body>
-    <div class="wrapper">
-      <nav class="navbar">
-        <img src="pic.jpg" width="80px" height="80px" class="logo">
-        <h4>No more ties, Always a winner !!</h4>
-        <br>
-        <h1>Trinity Tic-Tac-Toe</h1>
-    </nav>
-    <div class="msg-container xyz hide ">
-      <p id="msg"></p>
-      <button id="new-btn" onclick="resetAndNew()">New Game</button>
-    </div>
-    <div class="rulesprompt1 msg-container hide1" >
-         <div class="setup">
-          <h2>Game Setup</h2>
-         </div>
-         <i class="fa-regular fa-circle-xmark icons"></i>
-         <div class="ru1">
-          <ul >
-            <li >
-              There are three Tic Tac Toe grids (3x3 each).
-            </li>
-            <li>
-              Only the symbol "X" is used by both players
-            </li>
-        </ul>
-         </div>
-         <button class="left" onclick="back()">Back</button>
-         <button class="right" onclick="rule2()">Rule No.2</button>
-    </div>
-    <div class="rulesprompt2 msg-container hide2" >
-      <div class="setup">
-        <h2>Game Play</h2>
-       </div>
-       <i class="fa-regular fa-circle-xmark icons"></i>
-       <div class="ru1">
-        <ul>
-          <li>
-            Players take turns placing one "X" on any of the three grids.
-          </li>
-          <li>
-            Each player can only place one "X" per turn.
-          </li>
-          <li>
-            Players can place their "X" on any of the available spots on any of the three grids.
-          </li>
-      </ul>
-       </div>
-       <div class="feet">
-        <button class="left" onclick="rule1()">Rule No.1</button>
-        <button class="right" onclick="rule3()">Rule No.3</button>
-       </div>
- </div>
- <div class="rulesprompt3 msg-container hide3" >
-  <div class="setup">
-    <h2>Blocking Grids</h2>
-   </div>
-   
- 
-
-   <i class="fa-regular fa-circle-xmark icons"></i>
-
-  
-   <div class="ru1">
-    <ul>
-      <li>
-        If a player gets three "X"s consecutively (horizontally, vertically, or diagonally) in a grid, that grid is blocked. 
-      </li>
-      <li>
-        Blocked grid cannot be used for the rest of the game.
-      </li>
-      <li>
-        Once a grid is blocked, no more "X"s can be placed on it.
-      </li>
-  </ul>
-   </div>
-  <button class="left" onclick="rule2()">Rule No.2</button>
-  <button class="right" onclick="rule4()">Rule No.4</button>
-</div>
-<div class="rulesprompt4 msg-container hide4" >
-  <div class="setup">
-    <h2>Endgame</h2>
-   </div>
-   <i class="fa-regular fa-circle-xmark icons"></i>
-   <div class="ru1">
-    <ul>
-      <li>
-        If two of the three grids are blocked, players can only play on the last remaining grid.
-      </li>
-      <li>
-        The game ends when a player places an "X" that results in three consecutive "X"s in the last unblocked grid.
-      </li>
-      <li>
-        The player who places the last "X" that completes a row of three "X"s in the final grid loses the game, and the other player is declared the winner.
-      </li>
-  </ul>
-   </div>
-  <button class="left" onclick="rule3()">Rule No.3</button>
-  <button class="right" onclick="playGame()">Play Game</button>
-</div>
-    <main>
-        <div class="rules">
-                <button onclick="rule1()" class="how">how to play</button>
-        </div>
-        <div class="container">
-            <div class="t">
-                <button class="b1"></button>
-                <button class="b1"></button>
-                <button class="b1"></button>
-                <button class="b1"></button>
-                <button class="b1"></button>
-                <button class="b1"></button>
-                <button class="b1"></button>
-                <button class="b1"></button>
-                <button class="b1"></button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon-32x32.png">
+    <title>Trinity Tic Tac Toe</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <nav>
+            <img src="pic.jpg" width="80" height="80" class="logo" alt="Game Logo">
+            <h1>Trinity Tic Tac Toe</h1>
+            <h2>No more ties, Always a winner!</h2>
+        </nav>
+    </header>
+    <!--Naming on landing page-->
+    <section class="names-modal">
+        <h3>Welcome to Trinity Tic Tac Toe!</h3>
+        <div class="player-inputs two-player-inputs">
+            <div class="input-group">
+                <label for="player1-name">Player 1 Name:</label>
+                <input type="text" id="player1-name" placeholder="Enter name" maxlength="20">
             </div>
-            <div class="t">
-                <button class="b2"></button>
-                <button class="b2"></button>
-                <button class="b2"></button>
-                <button class="b2"></button>
-                <button class="b2"></button>
-                <button class="b2"></button>
-                <button class="b2"></button>
-                <button class="b2"></button>
-                <button class="b2"></button>
-            </div>
-            <div class="t">
-                <button class="b3"></button>
-                <button class="b3"></button>
-                <button class="b3"></button>
-                <button class="b3"></button>
-                <button class="b3"></button>
-                <button class="b3"></button>
-                <button class="b3"></button>
-                <button class="b3"></button>
-                <button class="b3"></button>
+            <div class="input-group">
+                <label for="player2-name">Player 2 Name:</label>
+                <input type="text" id="player2-name" placeholder="Enter name" maxlength="20">
             </div>
         </div>
-    </main>
-    <p class="turn" style="color:aliceblue ;translate:0% -150% ;font-size:21px">Player1 turn</p>
-    <button id="reset-btn" game-reset onclick="resetAndNew()">Reset Game</button>
+        <div class="player-inputs single-player-inputs hidden">
+            <div class="input-group">
+                <label for="player-name">Your Name:</label>
+                <input type="text" id="player-name" placeholder="Enter name" maxlength="20">
+            </div>
+        </div>
+        <div class="mode-selection">
+            <button type="button" class="btn play-vs-player">Play vs Player</button>
+            <button type="button" class="btn play-vs-computer">Play vs Computer</button>
+        </div>
+        <button type="button" class="btn start-game-btn" disabled>Start Game</button>
+    </section>
+    <!-- Tutorial Section -->
+    <section class="tutorial-section">
+        <button type="button" class="btn tutorial-btn">How To Play</button>
+    </section>
+
+    <!-- Tutorial Slides -->
+    <article class="tutorial-slide tutorial-slide-1 hidden">
+        <button type="button" class="close-tutorial">&times;</button>
+        <h3 class="tutorial-heading">Tutorial</h3>
+        <p>Only the symbol "X" is used by both players</p>
+        <p>Grid is blocked with 3 consecutive X vertically, horizontally or diagonally</p>
+        <p>Last player to place "X" lose</p>
+    </article>
+    <!-- Game Status -->
+    <section class="game-status">
+        <p class="current-player">Player 1</p>
+    </section>
+
+    <!-- Game Grid -->
+    <section class="game-container">
+        <div class="game-grid grid-1">
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+            <button class="grid-cell grid1-cell"></button>
+        </div>
+        
+        <div class="game-grid grid-2">
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+            <button class="grid-cell grid2-cell"></button>
+        </div>
+        
+        <div class="game-grid grid-3">
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+            <button class="grid-cell grid3-cell"></button>
+        </div>
+    </section>
+
+    <!-- Winner Modal -->
+    <section class="winner-modal hidden">
+        <h3 class="winner-message">Congratulations!</h3>
+        <button type="button" class="btn confirm-win">New Game</button>
+    </section>
+
+    <!-- Game Controls -->
+    <section class="game-controls">
+        <button type="button" class="btn new-game-btn">New Game</button>
+        <button type="button" class="btn mode-toggle">play vs computer</button>
+        <button type="button" class="btn undo-btn hidden">Undo Move</button>
+    </section>
+
+    <!-- Overlay -->
+    <div class="overlay hidden"></div>
+
+<!-- Mode Switch Modal -->
+<section class="mode-switch-modal hidden">
+    <h3>Switch Game Mode?</h3>
+    <p>Current game progress will be lost.</p>
+    <div class="modal-buttons">
+        <button type="button" class="btn cancel-mode-switch">Cancel</button>
+        <button type="button" class="btn confirm-mode-switch">Switch Mode</button>
     </div>
-    <div class="overlay"></div>
-    <script src="script.js" > </script>
-  </body>
- 
+</section>
+
+<!-- Reset Game Modal -->
+<section class="reset-game-modal hidden">
+    <h3>Reset Game?</h3>
+    <p>Current game progress will be lost.</p>
+    <div class="modal-buttons">
+        <button type="button" class="btn cancel-reset">Cancel</button>
+        <button type="button" class="btn confirm-reset">Reset Game</button>
+    </div>
+</section>
+
+<!-- Audio Element -->
+    <audio id="moveSound" src="click.mp3" preload="auto"></audio>
+    <audio id="winSound" src="wins.mp3" preload="auto"></audio>
+<!-- Linking Javascript -->
+    <script src="script.js"></script>
+    
+</body>
 </html>
